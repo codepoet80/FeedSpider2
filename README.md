@@ -25,6 +25,10 @@ Run `npm install` from the `/enyo-app/enyo` folder.
 
 Be aware that the "Walker" dependency is NOT a NPM package, but a custom Enyo build tool. Claude found it by digging through Git history and included it in this project.
 
+Make sure the right version of Node and Cordova is installed. I had to use Node 14.21.3. In both cases I just installed Cordova globally: `npm install -g cordova`
+
+Then add the Cordova target you want to build for: `cordova platform add android`
+
 Contact
 =======
 
