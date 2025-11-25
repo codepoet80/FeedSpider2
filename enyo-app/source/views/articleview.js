@@ -97,18 +97,23 @@ enyo.kind({
 
 	activate: function(changes) {
 		var self = this;
-		
+
 		//Reset the window to flush any old content.
 		this.$.title.setContent("");
 		this.$.subscription.setContent("");
 		this.$.author.setContent("");
 		this.$.summary.setContent("");
 		this.$.mainScroller.scrollToTop();
-		
+
 		this.$.title.setContent(this.article.title);
 		this.$.subscription.setContent(this.articleContainer.api.titleFor(this.article.subscriptionId));
 		this.$.author.setContent(this.article.author ? "by " + this.article.author : "");
-		this.$.summary.setContent(this.article.summary);
+
+		var summaryContent = this.article.summary;
+		if (FeedSpider2.Preferences.isStripImages()) {
+			summaryContent = this.stripImages(summaryContent);
+		}
+		this.$.summary.setContent(summaryContent);
 
 		this.$.nextButton.show();
 		this.$.smallSpinner.hide();
@@ -121,6 +126,15 @@ enyo.kind({
 
 		this.refreshSharingMenu();
 		this.allowSwipeNav = FeedSpider2.Preferences.allowSwipeNav();
+	},
+
+	stripImages: function(html) {
+		if (!html) {
+			return html;
+		}
+		// Remove all img tags from the HTML content
+		// This regex matches img tags with any attributes
+		return html.replace(/<img[^>]*>/gi, '');
 	},
 
 	setFontSize: function(fontSize) {

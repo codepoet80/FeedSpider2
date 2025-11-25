@@ -21,7 +21,8 @@ FeedSpider2.Preferences = {
   LEFTY_FRIENDLY: "s-lefty-friendly",
   FEEDLY_SORT_ENGAGEMENT: "feedly-sort-engagement",
   SHORTEN_URLS: "shorten-urls",
-  EXPECTED_NOTIFICATION_EVENT: "expected-notification-event", 
+  EXPECTED_NOTIFICATION_EVENT: "expected-notification-event",
+  STRIP_IMAGES: "strip-images", 
 
   isShortenURLs: function() {
     return this.getCookie(this.SHORTEN_URLS, false);
@@ -29,6 +30,14 @@ FeedSpider2.Preferences = {
 
   setShortenURLs: function(isShortenURLs) {
     this.setCookie(this.SHORTEN_URLS, isShortenURLs);
+  },
+
+  isStripImages: function() {
+    return this.getCookie(this.STRIP_IMAGES, false);
+  },
+
+  setStripImages: function(stripImages) {
+    this.setCookie(this.STRIP_IMAGES, stripImages);
   },
   
   isFeedlySortEngagement: function() {
