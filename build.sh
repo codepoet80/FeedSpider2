@@ -48,7 +48,7 @@ if [ $webOS -eq 1 ]; then
     echo "Building for LuneOS/webOS..."
     rm -rf $mydir/bin/*.ipk
     rm -rf $mydir/bin/www/*
-    cp $mydir/cordova-webos.js $mydir/enyo-app/cordova.js -f
+    cp -f $mydir/cordova-webos.js $mydir/enyo-app/cordova.js
     $mydir/enyo-app/tools/deploy.sh -w $verbose
     mv $mydir/enyo-app/deploy/bin/*.ipk $mydir/bin/
 else
@@ -63,7 +63,7 @@ if [ $android -eq 1 ]; then
     cd $mydir/cordova-wrapper
     cordova platform add android
     echo "Copying to Cordova..."
-    cp $mydir/enyo-app/deploy/* $mydir/cordova-wrapper/www -R
+    cp -R $mydir/enyo-app/deploy/* $mydir/cordova-wrapper/www
     cd $mydir/cordova-wrapper
     echo "Building Cordova..."
     cordova build android
@@ -72,8 +72,8 @@ fi
 
 echo "Cleaning up..."
 if [ $www -eq 1 ]; then
-    mkdir $mydir/bin/www -p
-    cp $mydir/enyo-app/deploy/* $mydir/bin/www/ -R
+    mkdir -p $mydir/bin/www
+    cp -R $mydir/enyo-app/deploy/* $mydir/bin/www/
 fi
 rm -rf $mydir/enyo-app/deploy/*
 rm -rf $mydir/enyo-app/build/*

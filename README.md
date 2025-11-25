@@ -16,6 +16,15 @@ Feedspider Supports:
 
 Now, webOS and Firefox OS users can again sync their RSS feeds across all of their webOS and Firefox OS devices!
 
+Building
+========
+
+See the instructions here, to setup a minimum environment (node 14, npm, cordova): [https://sdk.webosarchive.org/index.php?page=cordova](https://sdk.webosarchive.org/index.php?page=cordova)
+
+Run `npm install` from the `/enyo-app/enyo` folder
+
+Be aware that the "Walker" dependency is NOT a NPM package, but a custom Enyo build tool. Claude found it by digging through Git history and included it in this project.
+
 Contact
 =======
 
