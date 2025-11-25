@@ -3,7 +3,7 @@
 # Alert the user of a failed build
 errored () {
 	errcode=$?
-	echo "Deploy encountered errors."
+	echo "Deploy encountered errors, code: $errcode"
 	exit $errcode
 }
 
