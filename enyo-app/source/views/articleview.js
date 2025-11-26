@@ -105,9 +105,9 @@ enyo.kind({
 		this.$.summary.setContent("");
 		this.$.mainScroller.scrollToTop();
 
-		this.$.title.setContent(this.article.title);
-		this.$.subscription.setContent(this.articleContainer.api.titleFor(this.article.subscriptionId));
-		this.$.author.setContent(this.article.author ? "by " + this.article.author : "");
+		this.$.title.setContent(Utils.decodeHtmlEntities(this.article.title));
+		this.$.subscription.setContent(Utils.decodeHtmlEntities(this.articleContainer.api.titleFor(this.article.subscriptionId)));
+		this.$.author.setContent(this.article.author ? "by " + Utils.decodeHtmlEntities(this.article.author) : "");
 
 		var summaryContent = this.article.summary;
 		if (FeedSpider2.Preferences.isStripImages()) {
