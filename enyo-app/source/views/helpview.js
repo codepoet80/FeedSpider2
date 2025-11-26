@@ -41,7 +41,7 @@ enyo.kind({
 			{tag: "br"},
 			{tag: "div", content: "History", style: "font-size: 20px; font-weight: bold"},
 			{tag: "div", components: [
-				{tag: "div", content: "2.2.x", style: "font-weight: bold" },
+				{tag: "div", content: "2.3.x", style: "font-weight: bold" },
 				{tag: "ul", components: [
 					{tag: "li", content: "Added option to remove images from articles to better support old devices."},
 					{tag: "li", content: "Backed-out Google Play support due to Google policy nightmare."},
