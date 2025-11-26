@@ -1,6 +1,6 @@
 # Cordova webOS Bootplate
 
-See https://github.com/webosarchive/enyo2-bootplate for details about how to build Enyo2 apps cross-platform
+See https://sdk.webosarchive.org/index.php?page=cordova for details about how to build Enyo2 apps cross-platform
 
 I have this working with:
 

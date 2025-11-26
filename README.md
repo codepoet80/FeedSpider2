@@ -26,7 +26,8 @@ You need the following installed:
 - **Node.js 14.x** (tested with v14.21.3) - Later versions may not work with the legacy Enyo framework
 - **npm** 6.x (comes with Node 14)
 - **Cordova CLI** 10.x: `npm install -g cordova`
-- **Android SDK** (for Android builds only)
+- **Android SDK** (for Android builds, see https://sdk.webosarchive.org/index.php?page=cordova)
+- **gradle** 7.x (for Android builds, see https://sdk.webosarchive.org/index.php?page=cordova)
 
 ## Initial Setup
 
