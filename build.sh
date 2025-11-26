@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mydir=$(cd `dirname $0` && pwd)
-mkdir $mydir/bin/ -p
+mkdir -p $mydir/bin/
 
 if [ "$1" = "clean" ]; then
     echo "Cleaning up..."
@@ -79,7 +79,10 @@ if [ $android -eq 1 ]; then
     cd $mydir/cordova-wrapper
     echo "Building Cordova..."
     cordova build android
-    cp $mydir/cordova-wrapper/platforms/android/app/build/outputs/apk/debug/*.apk $mydir/bin/
+
+    # Extract app name from package.json and rename APK
+    appname=$(grep '"name"' $mydir/cordova-wrapper/package.json | head -1 | sed 's/.*"name": *"\([^"]*\)".*/\1/')
+    cp $mydir/cordova-wrapper/platforms/android/app/build/outputs/apk/debug/app-debug.apk $mydir/bin/${appname}-debug.apk
 fi
 
 echo "Cleaning up..."
