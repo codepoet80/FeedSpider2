@@ -1,7 +1,7 @@
 {
   "name": "com.othelloventures.feedspider2",
   "displayName": "FeedSpider",
-  "version": "2.2.0",
+  "version": "2.3.4",
   "description": "RSS Feed Reader",
   "main": "index.js",
   "scripts": {
