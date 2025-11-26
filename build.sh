@@ -59,6 +59,18 @@ fi
 if [ $android -eq 1 ]; then
     echo "Building for Android..."
     rm -rf $mydir/bin/*.apk
+
+    # Check if Cordova dependencies are installed
+    if [ ! -d "$mydir/cordova-wrapper/node_modules" ]; then
+        echo "Installing Cordova dependencies..."
+        cd $mydir/cordova-wrapper
+        npm install
+        cd $mydir
+    fi
+
+    # Ensure www directory exists
+    mkdir -p $mydir/cordova-wrapper/www
+
     dirname=$mydir/cordova-wrapper
     cd $mydir/cordova-wrapper
     cordova platform add android

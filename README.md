@@ -19,15 +19,56 @@ Now, webOS and Firefox OS users can again sync their RSS feeds across all of the
 Building
 ========
 
-See the instructions here, to setup a minimum environment (node 14, npm, cordova): [https://sdk.webosarchive.org/index.php?page=cordova](https://sdk.webosarchive.org/index.php?page=cordova)
+## Prerequisites
 
-Run `npm install` from the `/enyo-app/enyo` folder.
+You need the following installed:
 
-Be aware that the "Walker" dependency is NOT a NPM package, but a custom Enyo build tool. Claude found it by digging through Git history and included it in this project.
+- **Node.js 14.x** (tested with v14.21.3) - Later versions may not work with the legacy Enyo framework
+- **npm** 6.x (comes with Node 14)
+- **Cordova CLI** 10.x: `npm install -g cordova`
+- **Android SDK** (for Android builds only)
 
-Make sure the right version of Node and Cordova is installed. I had to use Node 14.21.3. In both cases I just installed Cordova globally: `npm install -g cordova`
+## Initial Setup
 
-Then add the Cordova target you want to build for: `cordova platform add android`
+After cloning the repository, run these commands:
+
+```bash
+# Install Enyo framework dependencies
+cd enyo-app/enyo
+npm install
+cd ../..
+```
+
+**Note**: The "walker" dependency is NOT an npm package, but a custom Enyo build tool that's included in this repository (found by digging through git history).
+
+## Building
+
+The build script will automatically install Cordova dependencies when needed.
+
+```bash
+# Build for web
+./build.sh www
+
+# Build for webOS/LuneOS
+./build.sh webos
+
+# Build for Android
+./build.sh android
+
+# Build for multiple targets
+./build.sh webos android www
+```
+
+Build output will be in the `bin/` directory:
+- `bin/www/` - Web build
+- `bin/*.ipk` - webOS/LuneOS package
+- `bin/*.apk` - Android package
+
+## Troubleshooting
+
+- If you get "this is not a cordova project" error, the build script will automatically install dependencies
+- If you get walker errors, make sure you ran `npm install` in `enyo-app/enyo/`
+- Use Node 14.x - newer versions may have compatibility issues with the legacy Enyo 2.5.0 framework
 
 Contact
 =======
