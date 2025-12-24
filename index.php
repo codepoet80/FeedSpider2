@@ -3,6 +3,13 @@
 <?php
 //This file is only used for advertising on a hosting webserver
 
+//Figure out what protocol the client wanted
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+	$PROTOCOL = "https";
+} else {
+	$PROTOCOL = "http";
+}
+
 //App Details
 $description = "FeedSpider is a cross platform news reader web app created by Othello Ventures, and the coolest RSS app for retro mobile devices.";
 $title = "FeedSpider";
@@ -11,14 +18,9 @@ $github = "https://github.com/codepoet80/FeedSpider2";
 $pwaLink = "https://store.app/feedspider-wosa-link";
 $githubLink = "https://github.com/codepoet80/FeedSpider2/releases";
 $museumLink = "https://appcatalog.webosarchive.org/showMuseum.php?search=feedspider";
-$icon = "assets/icon.png";
-
-//Figure out what protocol the client wanted
-if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
-	$PROTOCOL = "https";
-} else {
-	$PROTOCOL = "http";
-}
+$homeLink = $PROTOCOL."://feedspider.wosa.link";
+$icon = $homeLink."/assets/icon.png";
+$hero = $homeLink."/hero.png";
 ?>
 <head>
   <meta charset="utf-8">
@@ -30,7 +32,7 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
   <meta name="author" content="webOS Archive">
   <meta property="og:title" content="<?php echo $title; ?>">
   <meta property="og:description" content="<?php echo $description; ?>">
-  <meta property="og:image" content="https://<?php echo $_SERVER['SERVER_NAME'] ?>/hero.png">
+  <meta property="og:image" content="https://<?php echo $hero; ?>">
 
   <meta name="twitter:card" content="app">
   <meta name="twitter:site" content="@webOSArchive">
