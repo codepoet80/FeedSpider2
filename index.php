@@ -32,7 +32,7 @@ $hero = $homeLink."/hero.png";
   <meta name="author" content="webOS Archive">
   <meta property="og:title" content="<?php echo $title; ?>">
   <meta property="og:description" content="<?php echo $description; ?>">
-  <meta property="og:image" content="https://<?php echo $hero; ?>">
+  <meta property="og:image" content="<?php echo $hero; ?>">
 
   <meta name="twitter:card" content="app">
   <meta name="twitter:site" content="@webOSArchive">
