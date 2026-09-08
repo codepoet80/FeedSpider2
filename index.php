@@ -15,7 +15,7 @@ $description = "FeedSpider is a cross platform news reader web app created by Ot
 $title = "FeedSpider";
 $subtitle = " | The coolest RSS Reader for webOS -- now available as a PWA";
 $github = "https://github.com/codepoet80/FeedSpider2";
-$pwaLink = "https://store.app/feedspider-wosa-link";
+$pwaLink = "/app";
 $githubLink = "https://github.com/codepoet80/FeedSpider2/releases";
 $museumLink = "https://appcatalog.webosarchive.org/showMuseum.php?search=feedspider";
 $homeLink = $PROTOCOL."://feedspider.wosa.link";
