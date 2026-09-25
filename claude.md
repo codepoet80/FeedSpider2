@@ -5,7 +5,7 @@ FeedSpider2 is an RSS feed reader application that syncs with multiple RSS servi
 
 **Key Facts:**
 - **App ID**: com.othelloventures.feedspider2
-- **Current Version**: 2.3.4
+- **Current Version**: 2.4.0
 - **Original Author**: Brent Hunter (Othello Ventures)
 - **Contact**: feedspider@feedspider.net
 - **Website**: http://www.feedspider.net

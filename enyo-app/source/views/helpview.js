@@ -41,6 +41,13 @@ enyo.kind({
 			{tag: "br"},
 			{tag: "div", content: "History", style: "font-size: 20px; font-weight: bold"},
 			{tag: "div", components: [
+				{tag: "div", content: "2.4.x", style: "font-weight: bold" },
+				{tag: "ul", components: [
+					{tag: "li", content: "Added The Old Reader support for web, Android and LuneOS via CORS proxy."},
+					{tag: "li", content: "Fixed The Old Reader's All Items, Starred and Shared lists showing no articles."}
+				]}
+			]},
+			{tag: "div", components: [
 				{tag: "div", content: "2.3.x", style: "font-weight: bold" },
 				{tag: "ul", components: [
 					{tag: "li", content: "Added option to remove images from articles to better support old devices."},

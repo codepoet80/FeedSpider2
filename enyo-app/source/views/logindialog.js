@@ -99,8 +99,7 @@ enyo.kind({
 			this.$.feedlyPickerItem.hide();
 			this.$.bqPickerItem.hide();
 			this.$.ocPickerItem.hide();
-			this.$.torPickerItem.hide();
-			this.$.ttrssPickerItem.hide();	
+			this.$.ttrssPickerItem.hide();
 		}
 		//enyo.log("Starting on platform: " + JSON.stringify(enyo.platform));
 		

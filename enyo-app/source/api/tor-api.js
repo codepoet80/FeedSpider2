@@ -5,8 +5,9 @@ enyo.kind({
 
 	published: {
 		auth: null,
-		//webOS doesn't enforce CORS, everywhere else needs the proxy because TheOldReader doesn't allow the Authorization header
-		baseURL: (enyo.platform.webos || window.PalmSystem) ? "https://theoldreader.com/reader/api/0/" : "https://feedspider.wosa.link/theoldreader/api/0/",
+		//Legacy webOS and FirefoxOS don't enforce CORS, everywhere else (including LuneOS) needs the proxy
+		//because TheOldReader doesn't allow the Authorization header. Keep in sync with LoginDialog's picker.
+		baseURL: (enyo.platform.webos || enyo.platform.firefoxOS) ? "https://theoldreader.com/reader/api/0/" : "https://feedspider.wosa.link/theoldreader/api/0/",
 		editToken: null,
 		editTokenTime: null,
 		titles: null
@@ -20,7 +21,8 @@ enyo.kind({
 		}.bind(this);
 
 		var request = new enyo.Ajax({
-			url: "https://theoldreader.com/reader/api/0/accounts/ClientLogin",
+			//use baseURL so this goes through the CORS proxy too, TheOldReader sends no CORS headers on ClientLogin
+			url: this.get("baseURL") + "accounts/ClientLogin",
 			method: "POST",
 			handleAs: "text",
 			postBody: {client: "FeedSpider2", accountType: "HOSTED_OR_GOOGLE", service: "reader", Email: credentials.get("email"), Passwd: credentials.get("password")},
